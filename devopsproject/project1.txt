@@ -1,0 +1,235 @@
+Question 1
+
+The Nautilus DevOps team is strategizing the migratic of a portion of their infrastructure to the AWS cloud.
+Recognizing the scale of this undertaking, they have opted to approach the migration in incremental steps  
+rather than as a single massive transition. To achieve this, they have segmented large tasks into smaller, 
+more manageable units. This granular approach enables the team to execute the migration in gradual phases,
+ensuring smoother implementation and minimizing disruption to ongoing operations. By breaking down the 
+migration into smaller tasks, the Nautilus DevOps team can systematically progress through each stage, 
+allowing for better control, risk mitigation, and optimization of resources throughout the migration process.
+
+For this task, create a key pair with the following requirements:
+    • Name of the key pair should be xfusion-kp.
+    • Key pair type must be rsa
+
+steps what i followed
+    Below are the **clear, correct steps** for this **DevOps project task** (AWS Key Pair creation), written so you can **use it directly in your GitHub project**.
+
+    ## Project Steps: AWS Key Pair Creation (xfusion-kp)
+
+    ### Step 1: Login to AWS Console
+
+    * Open a web browser
+    * Login to **AWS Management Console**
+    * Select the correct **region** (example: `us-east-1`)
+
+    **Purpose:**
+    AWS resources are region-specific.
+
+    ---
+
+    ### Step 2: Navigate to EC2 Service
+
+    * Go to **Services → EC2**
+    * From the left menu, click **Key Pairs** (under *Network & Security*)
+
+    **Purpose:**
+    Key pairs are managed inside EC2.
+
+    ---
+
+    ### Step 3: Create a New Key Pair
+
+    * Click **Create key pair**
+    * Enter details:
+
+    * **Key pair name:** `xfusion-kp`
+    * **Key pair type:** `RSA`
+    * **Private key file format:** `.pem`
+
+    **Purpose:**
+    RSA key pairs are used for secure SSH authentication.
+
+    ---
+
+    ### Step 4: Download the Key File
+
+    * AWS will automatically download:
+
+    ```
+    xfusion-kp.pem
+    ```
+    * Save it in a secure location
+
+    ⚠️ **Important:**
+    If you lose this file, it **cannot be downloaded again**.
+
+    ---
+
+    ### Step 5: Set Correct Permissions (Linux/Mac)
+
+    ```bash
+    chmod 400 xfusion-kp.pem
+    ```
+
+    **Purpose:**
+    SSH requires strict file permissions for private keys.
+
+    ---
+
+    ### Step 6: Connect to EC2 Instance Using the Key
+
+    ```bash
+    ssh -i xfusion-kp.pem ubuntu@<ec2-public-dns>
+    ```
+
+    **Purpose:**
+    Verifies that the key pair works correctly.
+
+    ---
+
+    ### Step 7: Verify Successful Login
+
+    * If login succeeds, the key pair is working
+    * No password will be required
+
+    ---
+
+    ## Expected Outcome
+
+    * RSA key pair **xfusion-kp** created successfully
+    * Secure SSH access enabled
+    * Task completed following DevOps best practices
+
+    ---
+
+    ## Why This Approach Is Used
+
+    * Prevents insecure password login
+    * Supports **incremental cloud migration**
+    * Improves security and access control
+
+Interview questions
+
+    Below are **interview-ready questions and answers** based **only on this project** (AWS key pair creation + DevOps migration context).
+You can confidently use these in **DevOps interviews, viva, or GitHub README**.
+
+---
+
+## Interview Questions & Answers – DevOps Project
+
+### 1️⃣ What is the goal of this project?
+
+**Answer:**
+The goal is to support a phased AWS cloud migration by securely setting up access to EC2 instances using an RSA key pair, following DevOps best practices.
+
+---
+
+### 2️⃣ Why did the team choose incremental migration instead of a single migration?
+
+**Answer:**
+Incremental migration reduces risk, minimizes downtime, improves control, and allows easier troubleshooting during each phase of the migration.
+
+---
+
+### 3️⃣ What is an AWS key pair?
+
+**Answer:**
+An AWS key pair is a set of public and private keys used for secure, password-less authentication when connecting to EC2 instances via SSH.
+
+---
+
+### 4️⃣ Why is RSA used for the key pair?
+
+**Answer:**
+RSA is a widely supported and secure encryption algorithm used by AWS for SSH access, making it suitable for production environments.
+
+---
+
+### 5️⃣ What is the name of the key pair created in your project?
+
+**Answer:**
+The key pair name is **`xfusion-kp`**.
+
+---
+
+### 6️⃣ Where is the private key stored?
+
+**Answer:**
+The private key (`xfusion-kp.pem`) is downloaded by the user and stored securely on the local system. AWS does not store private keys.
+
+---
+
+### 7️⃣ What happens if the `.pem` file is lost?
+
+**Answer:**
+If the key file is lost, it cannot be downloaded again. A new key pair must be created and associated with the EC2 instance.
+
+---
+
+### 8️⃣ Why do we change permissions to `400` for the key file?
+
+**Answer:**
+SSH requires strict permissions to ensure the private key is not accessible by others, improving security.
+
+---
+
+### 9️⃣ How do you connect to an EC2 instance using the key pair?
+
+**Answer:**
+Using the SSH command:
+
+```bash
+ssh -i xfusion-kp.pem ubuntu@<ec2-public-dns>
+```
+
+---
+
+### 🔟 What security benefit does key-based authentication provide?
+
+**Answer:**
+It eliminates password-based logins, reducing the risk of brute-force attacks and unauthorized access.
+
+---
+
+### 1️⃣1️⃣ In which AWS service are key pairs managed?
+
+**Answer:**
+Key pairs are managed under the **EC2 service** in AWS.
+
+---
+
+### 1️⃣2️⃣ Why is region selection important when creating key pairs?
+
+**Answer:**
+AWS key pairs are region-specific and must be created in the same region as the EC2 instance.
+
+---
+
+### 1️⃣3️⃣ How does this project reflect DevOps principles?
+
+**Answer:**
+It follows automation readiness, security-first design, incremental implementation, and proper documentation using version control.
+
+---
+
+### 1️⃣4️⃣ What real-world scenario does this project represent?
+
+**Answer:**
+It represents secure access management during cloud infrastructure migration.
+
+---
+
+### 1️⃣5️⃣ How can this project be improved or extended?
+
+**Answer:**
+It can be extended by:
+
+* Automating key creation with AWS CLI
+* Using IAM roles
+* Adding CI/CD pipelines
+* Using Infrastructure as Code tools like Terraform
+
+---
+
+
